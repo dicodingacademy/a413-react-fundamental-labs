@@ -39,13 +39,14 @@ class HomePage extends React.Component {
     })
   }
 
-  onDeleteHandler(id) {
-    deleteContact(id);
+  async onDeleteHandler(id) {
+    await deleteContact(id);
 
-    // update the contact state from data.js
+    // update the contact state from api.js
+    const { data  } = await getContacts();
     this.setState(() => {
       return {
-        contacts: getContacts(),
+        contacts: data,
       }
     });
   }
