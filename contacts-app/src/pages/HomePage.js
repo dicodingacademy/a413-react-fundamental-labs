@@ -22,7 +22,7 @@ class HomePage extends React.Component {
 
     this.state = {
       contacts: getContacts(),
-      keyword: '',
+      keyword: props.defaultKeyword || '',
     }
 
     this.onDeleteHandler = this.onDeleteHandler.bind(this);
@@ -46,6 +46,8 @@ class HomePage extends React.Component {
         keyword,
       }
     });
+
+    this.props.keywordChange(keyword);
   }
 
   render() {
