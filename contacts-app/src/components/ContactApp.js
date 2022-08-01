@@ -93,7 +93,7 @@ class ContactApp extends React.Component {
       <LocaleProvider value={this.state.localeContext}>
         <div className="contact-app">
           <header className='contact-app__header'>
-            <h1>Aplikasi Kontak</h1>
+            <h1>{this.state.localeContext.locale === 'id' ? 'Aplikasi Kontak' : 'Contacts App'}</h1>
             <Navigation logout={this.onLogout} name={this.state.authedUser.name} />
           </header>
           <main>
