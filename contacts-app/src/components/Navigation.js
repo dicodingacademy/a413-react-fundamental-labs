@@ -6,7 +6,7 @@ function Navigation() {
   return (
     <nav className="navigation">
       <ul>
-      <li><Link to="/"><FiHome /></Link></li>
+        <li><Link to="/"><FiHome /></Link></li>
         <li><Link to="/add"><FiPlusCircle /></Link></li>
       </ul>
     </nav>
