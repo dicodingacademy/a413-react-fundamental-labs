@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import Navigation from './Navigation';
 import HomePage from '../pages/HomePage';
 import AddPage from '../pages/AddPage';
+import RegisterPage from '../pages/RegisterPage';
 
 
 class ContactApp extends React.Component {
@@ -24,7 +25,7 @@ class ContactApp extends React.Component {
           <main>
             <Routes>
               <Route path="/*" element={<p>Halaman Login</p>} />
-              <Route path="/register" element={<p>Halaman Register</p>} />
+              <Route path="/register" element={<RegisterPage />} />
             </Routes>
           </main>
         </div>
