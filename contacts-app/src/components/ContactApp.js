@@ -18,6 +18,16 @@ class ContactApp extends React.Component {
     this.onLoginSuccess = this.onLoginSuccess.bind(this);
   }
 
+  async componentDidMount() {
+    const { data } = await getUserLogged();
+
+    this.setState(() => {
+      return {
+        authedUser: data,
+      };
+    });
+  }
+
   async onLoginSuccess({ accessToken }) {
     putAccessToken(accessToken);
     const { data } = await getUserLogged();
