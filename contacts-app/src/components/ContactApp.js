@@ -15,6 +15,22 @@ class ContactApp extends React.Component {
   }
   
   render() {
+    if (this.state.authedUser === null) {
+      return (
+        <div className='contact-app'>
+          <header className='contact-app__header'>
+            <h1>Aplikasi Kontak</h1>
+          </header>
+          <main>
+            <Routes>
+              <Route path="/*" element={<p>Halaman Login</p>} />
+              <Route path="/register" element={<p>Halaman Register</p>} />
+            </Routes>
+          </main>
+        </div>
+      )
+    }
+    
     return (
       <div className="contact-app">
         <header className='contact-app__header'>
