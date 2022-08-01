@@ -14,6 +14,19 @@ class ContactApp extends React.Component {
     this.state = {
       authedUser: null,
       initializing: true,
+      localeContext: {
+        locale: 'id',
+        toggleLocale: () => {
+          this.setState((prevState) => {
+            return {
+              localeContext: {
+                ...prevState.localeContext,
+                locale: prevState.localeContext.locale === 'id' ? 'en' : 'id'
+              }
+            }
+          })
+        }
+      }
     };
 
     this.onLoginSuccess = this.onLoginSuccess.bind(this);
