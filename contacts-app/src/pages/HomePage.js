@@ -2,8 +2,7 @@ import React from 'react';
 import { useSearchParams } from 'react-router-dom';
 import ContactList from '../components/ContactList';
 import SearchBar from '../components/SearchBar';
-import { getContacts } from '../utils/api';
-import { deleteContact } from '../utils/data';
+import { deleteContact, getContacts } from '../utils/api';
 
 function HomePageWrapper() {
   const [searchParams, setSearchParams] = useSearchParams();
