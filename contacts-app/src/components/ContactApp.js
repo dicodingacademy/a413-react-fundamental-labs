@@ -5,7 +5,7 @@ import HomePage from '../pages/HomePage';
 import AddPage from '../pages/AddPage';
 import RegisterPage from '../pages/RegisterPage';
 import LoginPage from '../pages/LoginPage';
-import { getUserLogged } from '../utils/api';
+import { getUserLogged, putAccessToken } from '../utils/api';
 
 class ContactApp extends React.Component {
   constructor(props) {
