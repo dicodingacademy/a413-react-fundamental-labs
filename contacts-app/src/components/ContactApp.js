@@ -6,6 +6,14 @@ import AddPage from '../pages/AddPage';
 
 
 class ContactApp extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      authedUser: null,
+    };
+  }
+  
   render() {
     return (
       <div className="contact-app">
