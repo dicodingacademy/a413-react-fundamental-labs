@@ -38,7 +38,7 @@ class ContactApp extends React.Component {
           </header>
           <main>
             <Routes>
-              <Route path="/*" element={<LoginPage />} />
+              <Route path="/*" element={<LoginPage loginSuccess={this.onLoginSuccess} />} />
               <Route path="/register" element={<RegisterPage />} />
             </Routes>
           </main>
