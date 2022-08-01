@@ -1,7 +1,7 @@
 import React from 'react';
-import { addContact } from '../utils/data';
 import ContactInput from '../components/ContactInput';
 import { useNavigate } from 'react-router-dom';
+import { addContact } from '../utils/api';
 
 function AddPage() {
   const navigate = useNavigate();
