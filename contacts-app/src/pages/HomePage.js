@@ -5,86 +5,87 @@ import SearchBar from '../components/SearchBar';
 import { deleteContact, getContacts } from '../utils/api';
 import { LocaleConsumer } from '../contexts/LocaleContext';
 
-function HomePageWrapper() {
-  const [searchParams, setSearchParams] = useSearchParams();
 
-  const keyword = searchParams.get('keyword');
+// function HomePageWrapper() {
+//   const [searchParams, setSearchParams] = useSearchParams();
 
-  function changeSearchParams(keyword) {
-    setSearchParams({ keyword });
-  }
+//   const keyword = searchParams.get('keyword');
 
-  return <HomePage defaultKeyword={keyword} keywordChange={changeSearchParams} />
-}
+//   function changeSearchParams(keyword) {
+//     setSearchParams({ keyword });
+//   }
 
-class HomePage extends React.Component {
-  constructor(props) {
-    super(props);
+//   return <HomePage defaultKeyword={keyword} keywordChange={changeSearchParams} />
+// }
 
-    this.state = {
-      contacts: [],
-      keyword: props.defaultKeyword || '',
-    }
+// class HomePage extends React.Component {
+//   constructor(props) {
+//     super(props);
 
-    this.onDeleteHandler = this.onDeleteHandler.bind(this);
-    this.onKeywordChangeHandler = this.onKeywordChangeHandler.bind(this);
-  }
+//     this.state = {
+//       contacts: [],
+//       keyword: props.defaultKeyword || '',
+//     }
 
-  async componentDidMount() {
-    const { data } = await getContacts();
+//     this.onDeleteHandler = this.onDeleteHandler.bind(this);
+//     this.onKeywordChangeHandler = this.onKeywordChangeHandler.bind(this);
+//   }
+
+//   async componentDidMount() {
+//     const { data } = await getContacts();
     
-    this.setState(() => {
-      return {
-        contacts: data
-      }
-    })
-  }
+//     this.setState(() => {
+//       return {
+//         contacts: data
+//       }
+//     })
+//   }
 
-  async onDeleteHandler(id) {
-    await deleteContact(id);
+//   async onDeleteHandler(id) {
+//     await deleteContact(id);
 
-    // update the contact state from api.js
-    const { data  } = await getContacts();
-    this.setState(() => {
-      return {
-        contacts: data,
-      }
-    });
-  }
+//     // update the contact state from api.js
+//     const { data  } = await getContacts();
+//     this.setState(() => {
+//       return {
+//         contacts: data,
+//       }
+//     });
+//   }
 
-  onKeywordChangeHandler(keyword) {
-    this.setState(() => {
-      return {
-        keyword,
-      }
-    });
+//   onKeywordChangeHandler(keyword) {
+//     this.setState(() => {
+//       return {
+//         keyword,
+//       }
+//     });
 
-    this.props.keywordChange(keyword);
-  }
+//     this.props.keywordChange(keyword);
+//   }
 
-  render() {
-    const contacts = this.state.contacts.filter((contact) => {
-      return contact.name.toLowerCase().includes(
-        this.state.keyword.toLowerCase()
-      );
-    });
+//   render() {
+//     const contacts = this.state.contacts.filter((contact) => {
+//       return contact.name.toLowerCase().includes(
+//         this.state.keyword.toLowerCase()
+//       );
+//     });
 
-    return (
-      <LocaleConsumer>
-        {
-          ({ locale }) => {
-            return (
-              <section>
-                <SearchBar keyword={this.state.keyword} keywordChange={this.onKeywordChangeHandler} />
-                <h2>{locale === 'id' ? 'Daftar Kontak' : 'Contacts List'}</h2>
-                <ContactList contacts={contacts} onDelete={this.onDeleteHandler} />
-              </section>
-            )
-          }
-        }
-      </LocaleConsumer>
-    )
-  }
-}
+//     return (
+//       <LocaleConsumer>
+//         {
+//           ({ locale }) => {
+//             return (
+//               <section>
+//                 <SearchBar keyword={this.state.keyword} keywordChange={this.onKeywordChangeHandler} />
+//                 <h2>{locale === 'id' ? 'Daftar Kontak' : 'Contacts List'}</h2>
+//                 <ContactList contacts={contacts} onDelete={this.onDeleteHandler} />
+//               </section>
+//             )
+//           }
+//         }
+//       </LocaleConsumer>
+//     )
+//   }
+// }
 
-export default HomePageWrapper;
+// export default HomePageWrapper;
